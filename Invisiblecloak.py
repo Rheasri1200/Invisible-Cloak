@@ -5,10 +5,10 @@ import argparse
 
 
 print("""
-Harry :  Hey !! Would you like to try my invisibility cloak ??
+Harry :  Hey !! Ms Riya Would you like to try my invisibility cloak ??
          Its awesome !!
         
-         Prepare to get invisible .....................
+         be Ready to get Invisible  Thanks For watching .....................
     """)
 cap = cv2.VideoCapture(0)
 
@@ -34,12 +34,12 @@ while(cap.isOpened()):
 	hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
 	# Generating mask to detect red color
-	lower_red = np.array([0,120,70])
-	upper_red = np.array([10,255,255])
-	mask1 = cv2.inRange(hsv,lower_red,upper_red)
+	lower_blue = np.array([94, 80, 2])
+	upper_blue = np.array([126, 255, 255])
+	mask1 = cv2.inRange(hsv,lower_blue,upper_blue)
 
-	lower_red = np.array([170,120,70])
-	upper_red = np.array([180,255,255])
+	lower_red = np.array([130,80,2])
+	upper_red = np.array([140,255,255])
 	mask2 = cv2.inRange(hsv,lower_red,upper_red)
 
 	mask1 = mask1+mask2
@@ -57,4 +57,6 @@ while(cap.isOpened()):
 	cv2.imshow('Magic !!!',final_output)
 	k = cv2.waitKey(10)
 	if k == 27:
-		break 
+		break
+cv2.destroyAllWindows() 
+
